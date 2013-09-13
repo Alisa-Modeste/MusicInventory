@@ -1,0 +1,19 @@
+<p><%= link_to "Add an album to a band", new_album_url %>
+
+<br>
+<br>
+<% @all_albums.each do |band, albums|%>
+  <p><strong><%= band.name %></strong></p>
+  <p><%= "No albums" if albums.length == 0 %></p>
+
+  <ul>
+  <% albums.each do |album|%>
+    <li><%= album.name %> </li>
+  <% end %>
+  </ul>
+
+<% end %>
+
+
+
+

@@ -1,0 +1,6 @@
+<% @bands.each do |band|%>
+  <p><%= band.name %> </p>
+<% end %>
+<%= "No bands" if @bands.length == 0 %>
+
+<p><%= link_to "Add a band", new_band_url %> </p>

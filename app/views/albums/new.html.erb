@@ -1,0 +1,11 @@
+<form action="" method="POST">
+  <p>Add an album</p>
+
+  <label>
+    <p>Select a band</p>
+    <select name="band_id" id="band_id">
+    <% @bands.each do |band|%>
+      <option value="<%= band.id %>"><%= band.name %><option>
+    <% end%>
+  </label>
+</form>
