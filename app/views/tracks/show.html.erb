@@ -1,0 +1,27 @@
+<!-- One track's info here -->
+
+<p><%= link_to "View this band's home page", band_url(params[:band_id]) %>
+<p><%= link_to "View all the tracks in this album", band_album_tracks_url(params[:band_id], params[:id]) %>
+
+  <h3>Comments</h3>
+  <% @notes.each_with_index do |note, i| %>
+  <!-- #EDIT user_id becomes user later -->
+  <p><%= i+1 %>. By <%= note.user_id%>
+    <br>
+    <%= note.note %>
+  </p>
+  <% end %>
+
+<form action="<%= band_album_track_notes_url(params[:band_id], params[:album_id], params[:id]) %>" method="POST">
+  <label>
+    Comment:
+    <input type="textarea" name="note[note]" id="note_note">
+
+  </label>
+
+  <input type="hidden" value="<%= params[:id] %>" name="note[track_id]" id="note_track_id">
+
+  <!-- #EDIT for current user-->
+  <input type="hidden" value="1" name="note[user_id]" id="note_user_id">
+  <input type="submit">
+</form>

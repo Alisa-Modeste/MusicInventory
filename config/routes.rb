@@ -3,11 +3,29 @@ MusicInventory::Application.routes.draw do
 #   resources :tracks, only: :index
  #  resources :bands
 
+  # resources :bands do
+  #   resources :albums do
+  #     resources :tracks do
+  #       resources :notes, only: [:create, :destroy, :update]#, except: [:new, :index, :sho]
+  #     end
+  #   end
+  # end
+
   resources :bands do
-    resources :albums do
-      resources :tracks
-    end
+    resources :albums, only: [:index, :create, :new]
   end
+
+  resources :albums, only: [:show, :edit, :update, :destroy] do
+    resources :tracks, only: [:index, :create, :new]
+  end
+
+  resources :tracks, only: [:show, :edit, :update, :destroy] do
+    resources :notes, only: :create
+  end
+
+  resources :notes, only: [:destroy, :update]
+
+
 
   namespace :all do
     resources :albums, :tracks, :bands, only: :index

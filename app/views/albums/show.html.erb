@@ -1,5 +1,6 @@
 <!-- Maybe change to band's name - View all of <band>'s albums -->
-<p><%= link_to "View all of this band's albums", band_albums_url(params[:band_id]) %>
+<p><%#= link_to "View all of this band's albums", band_albums_url(params[:band_id]) %>
+  <p><%= link_to "View this band's home page", band_url(params[:band_id]) %>
   <p><%= link_to "View all the tracks in this album", band_album_tracks_url(params[:band_id], params[:id]) %>
 
 <p><%= link_to "Add a track to this album",

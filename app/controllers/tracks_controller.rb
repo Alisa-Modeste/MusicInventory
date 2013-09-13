@@ -1,8 +1,11 @@
 class TracksController < ApplicationController
   def index
+    @album = Album.find(params[:album_id])
   end
 
   def show
+    @notes = Track.find(params[:id]).notes
+    render :show
   end
 
   def new
@@ -12,7 +15,13 @@ class TracksController < ApplicationController
   end
 
   def create
-    render json: params
+    track = Track.create!(params[:track])
+    if track.save
+      render text: "Track saved!"
+    else
+      #EDIT
+      render text: "Error"
+    end
   end
 
   def edit
