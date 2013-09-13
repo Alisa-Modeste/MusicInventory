@@ -1,12 +1,16 @@
 MusicInventory::Application.routes.draw do
-  # resources :albums
- #  resources :tracks
+  # resources :albums, only: :index
+#   resources :tracks, only: :index
  #  resources :bands
 
   resources :bands do
     resources :albums do
       resources :tracks
     end
+  end
+
+  namespace :all do
+    resources :albums, :tracks, :bands, only: :index
   end
 
   # The priority is based upon order of creation:
