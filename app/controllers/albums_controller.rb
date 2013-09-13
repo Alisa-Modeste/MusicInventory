@@ -6,6 +6,7 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
+    @band = @album.band
     render :show
   end
 
@@ -32,8 +33,8 @@ class AlbumsController < ApplicationController
 
     album = Album.create!(album)
     if album.save
-     # render text: "Album Saved!"
-     render json: temp_album
+     render text: "Album Saved!"
+     #render json: temp_album
     else
       #EDIT
       render text: "Error"

@@ -1,4 +1,6 @@
-<form action="<%= albums_url %>" method="POST">
+<!-- <form action="<%#= albums_url %>" method="POST"> -->
+
+<form action="<%= band_albums_url(params[:band_id]) %>" method="POST">
   <p>Add an album</p>
 
   <p><label>

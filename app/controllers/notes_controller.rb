@@ -5,7 +5,8 @@ class NotesController < ApplicationController
 
     note = Note.create!(params[:note])
     if note.save
-      render text: "Note Saved!"
+      #render text: "Note Saved!"
+      redirect_to track_url(params[:note][:track_id])
     else
       render text: "Error"
     end

@@ -1,15 +1,14 @@
 <!-- Maybe change to band's name - View all of <band>'s albums -->
 <p><%#= link_to "View all of this band's albums", band_albums_url(params[:band_id]) %>
-  <p><%= link_to "View this band's home page", band_url(params[:band_id]) %>
-  <p><%= link_to "View all the tracks in this album", band_album_tracks_url(params[:band_id], params[:id]) %>
+  <p><%= link_to "View this band's home page", band_url(@band.id) %>
+  <p><%#= link_to "View all the tracks in this album", album_url(@album.id) %>
 
 <p><%= link_to "Add a track to this album",
-  new_band_album_track_url(params[:band_id], params[:id]) %></p>
+  new_album_track_url(params[:id]) %></p>
 
 <!-- Display this album's tracks -->
 
   <ul>
   <% @album.tracks.each do |track| %>
-    <li><%= link_to track.name, band_album_track_url(params[:band_id],
-       params[:id], track.id)%>
+    <li><%= link_to track.name, track_url(track.id) %>
   <% end %>

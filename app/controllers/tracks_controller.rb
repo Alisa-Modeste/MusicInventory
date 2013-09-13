@@ -4,7 +4,10 @@ class TracksController < ApplicationController
   end
 
   def show
-    @notes = Track.find(params[:id]).notes
+    track = Track.find(params[:id])
+    @notes = track.notes #.first #.note
+    @album = track.album
+    @band = @album.band
     render :show
   end
 
