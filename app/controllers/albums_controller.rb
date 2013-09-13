@@ -1,7 +1,5 @@
 class AlbumsController < ApplicationController
   def index
-    # @albums = Album.all
-
     bands = Band.all
     @all_albums = []
 

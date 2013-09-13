@@ -6,15 +6,13 @@ class TracksController < ApplicationController
   end
 
   def new
-    bands = Band.all
-    @all_albums = []
-
-    bands.each do |band|
-      @all_albums << [band, band.albums]
-    end
+    @band = params[:band_id]
+    @album = params[:album_id]
+    render :new
   end
 
   def create
+    render json: params
   end
 
   def edit

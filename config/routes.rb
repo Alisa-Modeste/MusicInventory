@@ -5,7 +5,7 @@ MusicInventory::Application.routes.draw do
 
   resources :bands do
     resources :albums do
-      resources :bands
+      resources :tracks
     end
   end
 

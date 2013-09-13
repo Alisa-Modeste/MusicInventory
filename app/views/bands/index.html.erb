@@ -1,6 +1,10 @@
+<p><%= link_to "Add a band", new_band_url %> </p>
+
 <% @bands.each do |band|%>
-  <p><%= band.name %> </p>
+  <p><%= link_to "#{band.name}", band_url(band.id) %> </p>
 <% end %>
 <%= "No bands" if @bands.length == 0 %>
 
-<p><%= link_to "Add a band", new_band_url %> </p>
+
+<p><%#= link_to "Add an album", new_band_album_url(:id) %> </p>
+<p><%#= link_to "Add a track", new_band_album_track_url(:id, ) %> </p>

@@ -1,16 +1,13 @@
-<!-- <form action="" method="POST">
-  <% @all_albums.each do |band, albums|%>
-    <p><strong><%= band.name %></strong></p>
-    <p><%= "No albums" if albums.length == 0 %></p>
-
-    <select name="track[]" id="album_type">
-    <% albums.each do |album|%>
-
-      <option><%= album.name %> </option>
-    <% end %>
-    </select>
-
-  <% end %>
-</form> -->
-
 <!-- From album to here, get album_id -->
+
+<form action="<%= band_album_tracks_url(@band, @album) %>" method="POST">
+  <p><label>
+    Track Name:
+    <input type="text" id="track_name" name="track[name]">
+  </label></p>
+
+  <input type="hidden" value="<%= @band %>" id="track_band" name="track[band_id]">
+  <input type="hidden" value="<%= @album %>" id="track_album" name="track[album_id]">
+
+  <input type="submit">
+</form>
