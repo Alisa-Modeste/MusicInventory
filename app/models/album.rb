@@ -1,5 +1,5 @@
 class Album < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :band_id, :name
 
   has_many(
     :tracks,

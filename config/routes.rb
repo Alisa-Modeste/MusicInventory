@@ -1,7 +1,13 @@
 MusicInventory::Application.routes.draw do
-  resources :albums
-  resources :tracks
-  resources :bands
+  # resources :albums
+ #  resources :tracks
+ #  resources :bands
+
+  resources :bands do
+    resources :albums do
+      resources :bands
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

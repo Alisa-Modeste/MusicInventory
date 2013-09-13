@@ -1,5 +1,5 @@
 class Track < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :album_id, :number
 
   belongs_to(
     :album,

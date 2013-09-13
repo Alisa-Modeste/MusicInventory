@@ -13,6 +13,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    render :show
   end
 
   def new
@@ -21,6 +22,30 @@ class AlbumsController < ApplicationController
   end
 
   def create
+    #render json: params
+    album = params[:album].clone
+
+    if album[:type] == "live"
+      album[:name] << " (Live)"
+    elsif album[:type] == "studio"
+      album[:name] << " (Studio)"
+    end
+
+    album.delete(:type)
+
+    #EDIT
+    temp_album = album.clone
+    p album
+
+    album = Album.create!(album)
+    if album.save
+     # render text: "Album Saved!"
+     render json: temp_album
+    else
+      #EDIT
+      render text: "Error"
+    end
+
   end
 
   def edit
