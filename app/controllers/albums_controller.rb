@@ -1,16 +1,11 @@
 class AlbumsController < ApplicationController
   def index
-    bands = Band.all
-    @all_albums = []
-
-    bands.each do |band|
-      @all_albums << [band, band.albums]
-    end
-
+    @band = Band.find(params[:band_id])
     render :index
   end
 
   def show
+    @album = Album.find(params[:id])
     render :show
   end
 
